@@ -1,0 +1,18 @@
+---
+import PinIcon from '../../assets/icons/pin.svg';
+
+interface Props {
+	label?: string;
+}
+
+const { label = 'Afficher le cinéma le plus proche' } = Astro.props;
+---
+
+<button
+	type="button"
+	class="tw:inline-flex tw:min-h-11 tw:items-center tw:justify-center tw:gap-2 tw:rounded-lg tw:border tw:border-neutral-higher-02 tw:bg-neutral-alpha-inverted-higher-02 tw:px-5 tw:py-3 tw:text-body-base tw:font-medium tw:text-neutral-primary focus-visible:tw:outline-2 focus-visible:tw:outline-offset-2 focus-visible:tw:outline-brand-base"
+	aria-label={label}
+>
+	<PinIcon aria-hidden="true" focusable="false" class="tw:size-6" />
+	<span>{label}</span>
+</button>

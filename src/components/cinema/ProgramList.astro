@@ -1,4 +1,5 @@
 ---
+import EmptyProposition from './EmptyProposition.astro';
 import ProgramCard from './ProgramCard.astro';
 import type { CinemaProgram } from './types';
 
@@ -7,15 +8,22 @@ interface Props {
 }
 
 const { programs } = Astro.props;
+const hasPrograms = programs.length > 0;
 ---
 
-<section aria-labelledby="programme-title" class="tw:mt-6">
-	<h2 id="programme-title" class="tw:sr-only">Programme de la saison</h2>
-	<ul class="tw:flex tw:list-none tw:flex-col tw:gap-5 tw:p-0 tw:m-0">
-		{programs.map((program) => (
-			<li>
-				<ProgramCard program={program} />
-			</li>
-		))}
-	</ul>
-</section>
+{
+	hasPrograms ? (
+		<section aria-labelledby="programme-title" class="tw:mt-6">
+			<h2 id="programme-title" class="tw:sr-only">Programme de la saison</h2>
+			<ul class="tw:m-0 tw:flex tw:list-none tw:flex-col tw:gap-5 tw:p-0">
+				{programs.map((program) => (
+					<li>
+						<ProgramCard program={program} />
+					</li>
+				))}
+			</ul>
+		</section>
+	) : (
+		<EmptyProposition />
+	)
+}

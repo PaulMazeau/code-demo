@@ -1,0 +1,25 @@
+---
+import NearestCinemaButton from './NearestCinemaButton.astro';
+import SkeletonProgramCard from './SkeletonProgramCard.astro';
+import FauteuilSkeuomorphicIcon from '../../assets/icons/fauteuil-skeuomorphic.svg';
+---
+
+<section aria-labelledby="empty-program-title" class="tw:mt-6">
+	<h2 id="empty-program-title" class="tw:sr-only">Aucune programmation</h2>
+
+	<div class="tw:relative tw:flex tw:flex-col tw:gap-5">
+		<div class="tw:relative">
+			<SkeletonProgramCard />
+			<p class="tw:absolute tw:left-1/2 tw:top-1/2 tw:-translate-x-1/2 tw:-translate-y-1/2 tw:px-4 tw:text-center tw:font-trade tw:text-title-xl tw:font-semibold tw:text-neutral-primary">
+				Aucune proposition
+			</p>
+		</div>
+
+		<div class="tw:absolute tw:left-1/2 tw:top-1/2 tw:z-10 tw:mt-10 tw:md:mt-0 tw:flex tw:w-full tw:max-w-md tw:-translate-x-1/2 tw:-translate-y-1/2 tw:flex-col tw:items-center tw:gap-3 tw:px-4 tw:pt-8">
+			<FauteuilSkeuomorphicIcon aria-hidden="true" focusable="false" class="tw:h-20 tw:w-auto" />
+			<NearestCinemaButton />
+		</div>
+
+		<SkeletonProgramCard />
+	</div>
+</section>

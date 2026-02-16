@@ -1,0 +1,31 @@
+<article
+	class="skeleton-program-card tw:overflow-hidden tw:rounded-xl tw:border tw:border-neutral-base tw:text-neutral-primary"
+	aria-hidden="true"
+>
+	<div class="tw:grid tw:grid-cols-[minmax(0,1fr)_auto] tw:items-center tw:gap-6 tw:p-6 tw:md:p-8">
+		<div class="tw:flex tw:flex-col tw:gap-3 tw:max-w-184">
+			<div class="tw:h-5 tw:w-60 tw:max-w-full tw:rounded-sm tw:bg-neutral-alpha-inverted-lower-01"></div>
+			<div class="tw:h-4 tw:w-24 tw:rounded-sm tw:bg-neutral-alpha-inverted-lower-01"></div>
+			<div class="tw:h-4 tw:w-72 tw:max-w-full tw:rounded-sm tw:bg-neutral-alpha-inverted-lower-01"></div>
+		</div>
+
+		<div class="tw:hidden tw:md:flex tw:flex-col tw:items-end tw:gap-3">
+			<div class="tw:h-4 tw:w-20 tw:rounded-sm tw:bg-neutral-alpha-inverted-lower-01"></div>
+			<div class="tw:h-4 tw:w-14 tw:rounded-sm tw:bg-neutral-alpha-inverted-lower-01"></div>
+		</div>
+	</div>
+</article>
+
+<style>
+	.skeleton-program-card {
+		background-image:
+			linear-gradient(
+				90deg,
+				rgba(0, 0, 0, 0.72) 0%,
+				rgba(0, 0, 0, 0.62) 50%,
+				rgba(0, 0, 0, 0.72) 100%
+			),
+			var(--background-image-gradient-empty-radial);
+		background-color: rgb(var(--neutral-950));
+	}
+</style>
