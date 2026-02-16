@@ -181,7 +181,7 @@ LAYER - BASE
        */
     input,
     textarea {
-        @apply tw:appearance-none tw:focus:ring-0 tw:focus:ring-offset-0 tw:focus:outline-0;
+        @apply tw:appearance-none tw:focus:ring-0 tw:focus:ring-offset-0;
     }
 
     select {

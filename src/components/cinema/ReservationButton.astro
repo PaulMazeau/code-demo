@@ -10,13 +10,11 @@ interface Props {
 const { isAdded = false, title } = Astro.props;
 
 const label = isAdded ? 'Ajouté' : 'Ajouter à ma réservation';
-const actionVerb = isAdded ? 'Retirer' : 'Ajouter';
 ---
 
 <button
 	type="button"
 	aria-pressed={isAdded ? 'true' : 'false'}
-	aria-label={`${actionVerb} ${title} à ma réservation`}
 	class:list={[
 		'tw:flex tw:w-full tw:min-h-12 tw:items-center tw:justify-center tw:gap-2 tw:rounded-md tw:px-5 tw:py-3 tw:text-body-base tw:font-semibold tw:transition-colors tw:md:inline-flex tw:md:w-auto focus-visible:tw:outline-2 focus-visible:tw:outline-offset-2 focus-visible:tw:outline-brand-base',
 		isAdded
@@ -32,4 +30,5 @@ const actionVerb = isAdded ? 'Retirer' : 'Ajouter';
 		)
 	}
 	<span class="tw:text-body-base tw:font-medium">{label}</span>
+	<span class="tw:sr-only">pour {title}</span>
 </button>
