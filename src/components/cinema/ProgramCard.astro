@@ -1,0 +1,92 @@
+---
+import ProgramBadge from './ProgramBadge.astro';
+import ProgramMeta from './ProgramMeta.astro';
+import ProgramSchedule from './ProgramSchedule.astro';
+import ReservationButton from './ReservationButton.astro';
+import ChevronRightIcon from '../../assets/icons/chevron-right.svg';
+
+import type { CinemaProgram } from './types';
+
+interface Props {
+	program: CinemaProgram;
+}
+
+const { program } = Astro.props;
+
+const cardBackgroundImage = program.backgroundImage ?? '';
+const detailsLinkLabel = `Voir la fiche de ${program.title}`;
+---
+
+<article
+	class:list={[
+		'program-card tw:overflow-hidden tw:rounded-xl tw:border tw:bg-cover tw:bg-center tw:bg-no-repeat tw:text-neutral-primary',
+		program.isAdded
+			? 'tw:border-neutral-higher-02'
+			: 'tw:border-neutral-base'
+	]}
+	style={`--program-card-image: url('${cardBackgroundImage}');`}
+>
+	<div class="tw:grid tw:grid-cols-1 tw:grid-rows-[auto_auto_auto] tw:md:grid-cols-[minmax(0,1fr)_auto] tw:space-y-4 tw:md:space-y-0 tw:md:gap-x-4 tw:p-6 tw:md:p-8 tw:items-end">
+		<div class="tw:flex tw:max-w-176 tw:flex-col tw:gap-3">
+			{program.isNew && <ProgramBadge label="Nouveau" />}
+			<h2 class="tw:font-trade tw:font-semibold tw:text-display-sm tw:md:text-display-base tw:uppercase tw:tracking-wide tw:text-neutral-primary">
+				{program.title}
+			</h2>
+			<ProgramMeta genre={program.genre} duration={program.duration} />
+			<p class="tw:max-w-sm tw:text-body-sm tw:leading-tight tw:md:leading-normal tw:text-neutral-primary">
+				{program.description}
+			</p>
+			<a
+				href={program.detailsUrl}
+				class="tw:inline-flex tw:items-center tw:gap-1 tw:self-start tw:text-title-sm tw:font-medium tw:text-neutral-primary focus-visible:tw:outline-2 focus-visible:tw:outline-offset-2 focus-visible:tw:outline-brand-base"
+				aria-label={detailsLinkLabel}
+			>
+				<span>Voir la fiche</span>
+				<ChevronRightIcon aria-hidden="true" focusable="false" class="tw:size-4" />
+			</a>
+		</div>
+
+		<div class="tw:flex tw:flex-col tw:items-start tw:md:items-end tw:gap-4">
+			<ProgramSchedule
+				time={program.time}
+				timeISO={program.timeISO}
+				dateLabel={program.dateLabel}
+				dateISO={program.dateISO}
+			/>
+			<ReservationButton isAdded={program.isAdded} title={program.title} />
+		</div>
+	</div>
+</article>
+
+<style>
+	.program-card {
+		background-image:
+			linear-gradient(
+				180deg,
+				rgba(0, 0, 0, 0.9) 0%,
+				rgba(0, 0, 0, 0.85) 18%,
+				rgba(0, 0, 0, 0.62) 42%,
+				rgba(0, 0, 0, 0.62) 58%,
+				rgba(0, 0, 0, 0.85) 82%,
+				rgba(0, 0, 0, 0.9) 100%
+			),
+			var(--program-card-image);
+		background-clip: padding-box;
+	}
+
+	@media (min-width: 700px) {
+		.program-card {
+			background-image:
+				linear-gradient(
+					90deg,
+					rgba(0, 0, 0, 0.75) 0%,
+					rgba(0, 0, 0, 0.75) 18%,
+					rgba(0, 0, 0, 0.2) 40%,
+					rgba(0, 0, 0, 0.2) 60%,
+					rgba(0, 0, 0, 0.75) 82%,
+					rgba(0, 0, 0, 0.75) 100%
+				),
+				var(--program-card-image);
+		}
+	}
+</style>

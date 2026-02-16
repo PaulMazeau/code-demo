@@ -1,0 +1,18 @@
+---
+import TicketIcon from '../../assets/icons/ticket.svg';
+
+interface Props {
+	href: string;
+	label: string;
+}
+
+const { href, label } = Astro.props;
+---
+
+<a
+	href={href}
+	class="tw:inline-flex tw:min-h-11 tw:items-center tw:justify-center tw:gap-2 tw:rounded-lg tw:bg-brand-base tw:px-5 tw:py-3 tw:text-body-base tw:font-medium tw:text-neutral-inverted-primary tw:transition-colors hover:tw:bg-brand-higher-01 focus-visible:tw:outline-2 focus-visible:tw:outline-offset-2 focus-visible:tw:outline-brand-base"
+>
+	<TicketIcon aria-hidden="true" focusable="false" class="tw:size-6" />
+	<span>{label}</span>
+</a>

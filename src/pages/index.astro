@@ -1,11 +1,82 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import CinemaPage from '../components/cinema/CinemaPage.astro';
 import Layout from '../layouts/Layout.astro';
+import type { CinemaPageData } from '../components/cinema/types';
+import antonyAndCleopatraImage from '../assets/images/antony_and_cleopatra.png';
+import ilBarbiereImage from '../assets/images/il_barbiere_di_siviglia.png';
+import laBohemeImage from '../assets/images/la_boheme.png';
+import lesContesImage from '../assets/images/les_contes_d_hoffmann.png';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const cinemaData: CinemaPageData = {
+	cinemaName: 'Pathé Beaugrenelle',
+	cinemaDetailsUrl: '#',
+	seasonBookingUrl: '#',
+	programs: [
+		{
+			id: 'la-boheme',
+			title: 'La Bohème',
+			genre: 'Opéra',
+			duration: '1h49',
+			description:
+				'Marcellina rêve d’épouser Fidelio, le nouvel assistant de son père geôlier. Dans la forteresse est enfermé Florestan, que le gouverneur Don Pizarro veut abattre. Il ordonne à R…',
+			detailsUrl: '#',
+			time: '17:55',
+			timeISO: '17:55',
+			dateLabel: '15 décembre 2025',
+			dateISO: '2025-12-15',
+			backgroundImage: laBohemeImage.src,
+			isAdded: false
+		},
+		{
+			id: 'antony-cleopatra',
+			title: 'Antony and Cleopatra',
+			genre: 'Opéra',
+			duration: '1h49',
+			description:
+				'Marcellina rêve d’épouser Fidelio, le nouvel assistant de son père geôlier. Dans la forteresse est enfermé Florestan, que le gouverneur Don Pizarro veut abattre. Il ordonne à R…',
+			detailsUrl: '#',
+			time: '17:55',
+			timeISO: '17:55',
+			dateLabel: '15 décembre 2025',
+			dateISO: '2025-12-15',
+			backgroundImage: antonyAndCleopatraImage.src,
+			isNew: true,
+			isAdded: true
+		},
+		{
+			id: 'les-contes',
+			title: 'Les Contes d’Hoffmann',
+			genre: 'Opéra',
+			duration: '1h49',
+			description:
+				'Marcellina rêve d’épouser Fidelio, le nouvel assistant de son père geôlier. Dans la forteresse est enfermé Florestan, que le gouverneur Don Pizarro veut abattre. Il ordonne à R…',
+			detailsUrl: '#',
+			time: '17:55',
+			timeISO: '17:55',
+			dateLabel: '15 décembre 2025',
+			dateISO: '2025-12-15',
+			backgroundImage: lesContesImage.src,
+			isAdded: false
+		},
+		{
+			id: 'il-barbiere',
+			title: 'Il Barbiere di Siviglia',
+			genre: 'Opéra',
+			duration: '1h49',
+			description:
+				'Marcellina rêve d’épouser Fidelio, le nouvel assistant de son père geôlier. Dans la forteresse est enfermé Florestan, que le gouverneur Don Pizarro veut abattre. Il ordonne à R…',
+			detailsUrl: '#',
+			time: '17:55',
+			timeISO: '17:55',
+			dateLabel: '15 décembre 2025',
+			dateISO: '2025-12-15',
+			backgroundImage: ilBarbiereImage.src,
+			isAdded: false
+		}
+	]
+};
 ---
 
 <Layout>
-	<Welcome />
+	<CinemaPage data={cinemaData} />
 </Layout>

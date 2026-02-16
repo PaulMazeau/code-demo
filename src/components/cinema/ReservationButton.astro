@@ -1,0 +1,35 @@
+---
+import CheckIcon from '../../assets/icons/check.svg';
+import PlusIcon from '../../assets/icons/plus.svg';
+
+interface Props {
+	isAdded?: boolean;
+	title: string;
+}
+
+const { isAdded = false, title } = Astro.props;
+
+const label = isAdded ? 'Ajouté' : 'Ajouter à ma réservation';
+const actionVerb = isAdded ? 'Retirer' : 'Ajouter';
+---
+
+<button
+	type="button"
+	aria-pressed={isAdded ? 'true' : 'false'}
+	aria-label={`${actionVerb} ${title} à ma réservation`}
+	class:list={[
+		'tw:flex tw:w-full tw:min-h-12 tw:items-center tw:justify-center tw:gap-2 tw:rounded-md tw:px-5 tw:py-3 tw:text-body-base tw:font-semibold tw:transition-colors tw:md:inline-flex tw:md:w-auto focus-visible:tw:outline-2 focus-visible:tw:outline-offset-2 focus-visible:tw:outline-brand-base',
+		isAdded
+			? 'tw:border tw:border-neutral-higher-02 tw:bg-neutral-alpha-inverted-higher-01 tw:text-neutral-primary tw:backdrop-blur-lg'
+			: 'tw:bg-neutral-inverted-base tw:text-neutral-inverted-primary'
+	]}
+>
+	{
+		isAdded ? (
+			<CheckIcon aria-hidden="true" focusable="false" class="tw:size-4" />
+		) : (
+			<PlusIcon aria-hidden="true" focusable="false" class="tw:size-4" />
+		)
+	}
+	<span class="tw:text-body-base tw:font-medium">{label}</span>
+</button>

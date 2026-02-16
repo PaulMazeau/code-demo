@@ -1,0 +1,20 @@
+---
+interface Props {
+	time: string;
+	timeISO: string;
+	dateLabel: string;
+	dateISO: string;
+}
+
+const { time, timeISO, dateLabel, dateISO } = Astro.props;
+---
+
+<div class="tw:text-left tw:md:text-right tw:text-neutral-primary" aria-label={`Séance à ${time}, le ${dateLabel}`}>
+	<p class="tw:leading-none tw:tracking-tight">
+		<time datetime={timeISO} class="tw:text-display-sm tw:md:text-display-base tw:font-trade">{time}</time>
+		<span class="tw:ml-1 tw:text-body-base tw:uppercase tw:text-neutral-secondary tw:font-heebo">vost</span>
+	</p>
+	<p class="tw:mt-1 tw:text-display-sm tw:md:text-display-base tw:font-semibold tw:uppercase tw:leading-none tw:tracking-tight tw:font-trade">
+		<time datetime={dateISO}>{dateLabel}</time>
+	</p>
+</div>

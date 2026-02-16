@@ -1,0 +1,17 @@
+---
+import Age10Icon from '../../assets/icons/age-10.svg';
+
+interface Props {
+	genre: string;
+	duration: string;
+}
+
+const { genre, duration } = Astro.props;
+---
+
+<p class="tw:flex tw:items-center tw:gap-2 tw:text-body-xs tw:text-neutral-muted-placeholders">
+	<span>{genre} ({duration})</span>
+	<span class="tw:inline-flex tw:items-center tw:gap-1">
+		<Age10Icon aria-hidden="true" focusable="false" class="tw:size-4" />
+	</span>
+</p>
