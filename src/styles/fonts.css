@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Heebo-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/Heebo-Medium.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/Heebo-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('../fonts/Heebo-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'tradegothic';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/trade-gothic-bold-webfont.woff2') format('woff2');
+}
